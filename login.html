@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+ 
+body{
+    background-color: rgb(240, 233, 233);
+    
+}
+
+.container{
+    background-color:darkorange;
+    height: 300px;
+    width: 500px;
+    margin: 125px auto  50px auto;
+    
+    box-shadow: 5px 5px 5px  rgb(81, 68, 68);
+}
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    display: block;
+    width: 400px;
+    margin: 25px 20px 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    background-color:cornflowerblue;
+    color:wheat;
+    width: 100px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    margin:25px 20px 5px;
+}
+
+button:hover {
+    background-color:black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+h1 {
+    transform: translate(20px,10px);
+    color: rgb(49, 34, 34);
+} 
+a#sign{
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    text-align: center;
+    color: black;
+    height: 25px; width: 75px; background-color: burlywood;
+    margin:10px 0px 0px 500px ;
+
+}
+a#pass{
+    display: block;
+
+    padding: 10px;
+    color: black;
+    margin:10px 0px 0px 500px ;
+
+}
+
+
+
+
+</style>
+</head>
+<body>
+<div class="container">
+    <section id="login">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" id="loginUsername" placeholder="Email " required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Login</button><br>
+            
+          
+        </form>
+    </section>
+    
+    
+</div>
+<p style="margin-left: 500px;">Sign up if you Don't have an Account!</p>
+
+
+<a id="sign"  href="registration.html">sign up</a>
+<a id="pass" href="forgetPassword.html">Forget Password?</a>
+<script>
+     var storedData = JSON.parse(localStorage.getItem("storeData"));
+     console.log(storedData)
+
+     //console.log(storedData.email)
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+   
+    var enteredUsername = event.target[0].value;
+
+    console.log(enteredUsername)
+    var enteredPassword = event.target[1].value;
+    console.log(enteredPassword)
+
+    if (storedData.email === enteredUsername  && storedData.password === enteredPassword) {
+        // Redirect to home page
+        window.location.href = "home.html";
+    } else {
+        alert("Invalid credentials. Please try again.");
+    }
+});
+
+</script>
+</body>
+</html>

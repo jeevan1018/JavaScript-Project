@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+      body{
+    background-color: rgb(226, 218, 218);
+    
+}
+        div{
+            background-color: #d5e289fa;
+            width: 500px;
+            height: 600px;
+            box-shadow: 5px 5px 5px 5px rgb(71, 68, 68);
+        }
+        button{
+            background-color:darkorange;
+            height: 50px;
+            width: 120px;
+            padding: 5px;
+            border: none;
+            margin: 20px;
+            box-shadow: 2px 2px 2px black;
+        }
+        button:hover{
+            background-color: black;
+            color: aliceblue;
+        }
+
+    </style>
+</head>
+
+
+<body>
+<div>
+    <img src="" alt="" > 
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    
+    </div>
+    <button onclick="goBack()"><strong>Back</strong></button>
+
+
+
+    <script>
+         function goBack() {
+            window.history.back();
+        }
+
+        //all
+     var dataGetting = localStorage.getItem("addingind");
+     console.log(dataGetting);
+                let dataGetting1 = JSON.parse(dataGetting);
+                console.log(dataGetting1);
+
+                let lists = document.querySelectorAll("li");
+                
+                lists[0].innerHTML = dataGetting1["id"];
+                lists[1].innerText = dataGetting1["category"];
+                lists[2].innerText = dataGetting1["description"];
+                lists[3].innerText = dataGetting1["price"];
+                lists[4].innerText = dataGetting1["title"];
+
+                let imgg = document.querySelector("img");
+                imgg.setAttribute("src", dataGetting1["image"]);
+                imgg.style.width = "200px";
+                imgg.style.height = "200px";
+    </script>
+</body>
+</html>
