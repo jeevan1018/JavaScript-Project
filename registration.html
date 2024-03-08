@@ -4,66 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Registration</title>
-<style>
-
-body{
-    background-color: rgb(240, 233, 233);
-    
-}
-
-.container{
-    background-color:darkorange;
-    height: 580px;
-    width: 500px;
-    margin: 80px auto;
-    
-    box-shadow: 5px 5px 5px  rgb(81, 68, 68);
-}
-input[type="text"],
-input[type="password"],
-input[type="submit"],
-input[type="tel"],
-input[type="email"] {
-    display: block;
-    width: 400px;
-    margin: 25px 20px 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-#gender{
-    display: block;
-    width: 420px;
-    margin: 25px 20px 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-
-}
-button {
-    background-color:cornflowerblue;
-    color:wheat;
-    width: 100px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    margin:15px 20px 5px;
-}
-
-button:hover {
-    background-color:black;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-h1 {
-    transform: translate(20px,10px);
-    color: rgb(49, 34, 34);
-} 
-
-
-</style>
+<link rel="stylesheet" href="./registration.css">
 </head>
 <body>
 <div class="container">
@@ -71,8 +12,11 @@ h1 {
         <h1>Registration</h1>
         <form id="registrationForm">
             <input type="email" id="email" placeholder="Email" required>
+            <p id="mail" style="display: none; color: red;">@ Should include in the mail</p>
             <input type="tel" id="phone" placeholder="Phone Number" required>
+            <p id="phoneError" style="display: none; color: red; margin-left: 20px;">Phone Number Should have 10 Digits</p>
             <input type="text" id="username" placeholder="Username" required>
+            <p id="user" style="display: none; color: red;">Username Should have Atleast 6 characters </p>
             <select id="gender" required>
                 <option value="" disabled selected>Select Gender</option>
                 <option value="male">Male</option>
@@ -81,43 +25,15 @@ h1 {
             </select>
             <input type="text" id="place" placeholder="Place" required>
             <input type="password" id="password" placeholder="Password" required>
+            <p id="passError" style="display: none; color: red; margin-left: 20px;">Password Should have Atleast 8 characters</p>
             <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+    
             <button type="submit">Register</button>
         </form>
     </section>
 </div>
-<script>
-    document.getElementById("registrationForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    var email = document.getElementById("email").value;
-    var phone = document.getElementById("phone").value;
-    var username = document.getElementById("username").value;
-    var gender = document.getElementById("gender").value;
-    var place = document.getElementById("place").value;
-    var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("confirmPassword").value;
-
-    if (password !== confirmPassword) {
-        alert("Passwords do not match.");
-        return;
-    }
-
-    // Storing data in local storage
-    var storeData = {
-        email: email,
-        phone: phone,
-        username: username,
-        gender: gender,
-        place: place,
-        password: password
-    };
-    let storedData=localStorage.setItem("storeData", JSON.stringify(storeData));
-    console.log(storedData)
-
-    // Redirect to login page
-    window.location.href = "login.html";
-});
-
+<script src="./registration.js">
 </script>
+
 </body>
 </html>
