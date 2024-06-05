@@ -1,3 +1,5 @@
+let EmptyArray=[]
+
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
@@ -29,7 +31,8 @@ document.getElementById("registrationForm").addEventListener("submit", function(
             place: place,
             password: password
         };
-        localStorage.setItem("storeData", JSON.stringify(storeData));
+        EmptyArray.push(storeData)
+        localStorage.setItem("storeData", JSON.stringify(EmptyArray));
         alert("Registration successful.");
         window.location.href="login.html";
     }
