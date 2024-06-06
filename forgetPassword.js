@@ -11,7 +11,7 @@ function generateOTP() {
     
     
     if (enteredOTP === generatedOTP) {
-      //alert("OTP Matched!");
+      alert("OTP Matched!");
     
       window.location.href = "setNewPassword.html";
     } else {

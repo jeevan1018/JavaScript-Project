@@ -12,11 +12,11 @@
         <h1>Registration</h1>
         <form id="registrationForm">
             <input type="email" id="email" placeholder="Email" required>
-            <p id="mail" style="display: none; color: red;">@ Should include in the mail</p>
+         <!--    <p id="mail" style="display:none; color: red;">@ Should include in the mail</p> -->
             <input type="tel" id="phone" placeholder="Phone Number" required>
-            <p id="phoneError" style="display: none; color: red; margin-left: 20px;">Phone Number Should have 10 Digits</p>
-            <input type="text" id="username" placeholder="Username" required>
-            <p id="user" style="display: none; color: red;">Username Should have Atleast 6 characters </p>
+            <p id="phoneError" style="display:none; color: red; margin-left: 20px;">Phone Number Should have 10 Digits</p>
+            <input type="text" id="user" placeholder="Username" required> 
+            <p id="userError" style="display:none; color: red; margin-left: 20px;">Username Should have Atleast 6 characters </p> 
             <select id="gender" required>
                 <option value="" disabled selected>Select Gender</option>
                 <option value="male">Male</option>
@@ -25,15 +25,14 @@
             </select>
             <input type="text" id="place" placeholder="Place" required>
             <input type="password" id="password" placeholder="Password" required>
-            <p id="passError" style="display: none; color: red; margin-left: 20px;">Password Should have Atleast 8 characters</p>
+            <p id="passError" style="display:none; color: red; margin-left: 20px;">Password Should have Atleast 8 characters</p>
             <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
     
             <button type="submit">Register</button>
         </form>
     </section>
 </div>
-<script src="./registration.js">
-</script>
+<script src="./registration.js"></script>
 
 </body>
 </html>

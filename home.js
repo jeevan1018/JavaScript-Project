@@ -266,7 +266,7 @@
                     createdTdbtn.appendChild(btn);
     
                     btn.addEventListener("click", () => {
-                        // event.preventDefault;
+                        
                         console.log(mens[index]);
                         localStorage.setItem("addingind", JSON.stringify(mens[index]));
                         window.location.assign("./info.html");
@@ -292,7 +292,7 @@
                 })
             }
     
-            // jeweleryDisplay()
+            // jeweleryDisplay
     
             let jeweleryDisplay = () => {
                 abc();
@@ -337,7 +337,7 @@
                 })
             }
     
-            // electronicsDisplay()
+            // electronicsDisplay
             let electronicsDisplay = () => {
                 abc();
     
@@ -433,7 +433,7 @@
             }
     
             //all
-            let allDisplay = () => {
+           /*  let allDisplay = () => {
                 abc();
     
                 dataa.forEach((value, index) => {
@@ -475,7 +475,49 @@
                     createdTr.appendChild(createdTdbtn)
     
                 })
-            }
+            } */
+            let allDisplay = () => {
+              abc();
+          
+              dataa.forEach((value, index) => {
+                  let tablee = document.getElementById("tablee");
+                  let createdTr = document.createElement("tr");
+                  let createdTd = document.createElement("td");
+                  let createdTdImg = document.createElement("td");
+                  let createdTdCat = document.createElement("td");
+                  let createdTdDes = document.createElement("td");
+          
+                  let btn = document.createElement("button");
+                  btn.innerText = "View More";
+          
+                  let createdTdbtn = document.createElement("td");
+                  createdTdbtn.appendChild(btn);
+          
+                  btn.addEventListener("click", () => {
+                      localStorage.setItem("addingind", JSON.stringify(dataa[index]));
+                      window.location.assign("./info.html");
+                  });
+          
+                  createdTdCat.innerText = value['category'];
+                  createdTdDes.innerText = value['description'];
+                  let Imgg = document.createElement("img");
+                  Imgg.setAttribute("src", value["image"]);
+                  Imgg.style.width = "200px";
+                  Imgg.style.height = "200px";
+                  createdTdImg.appendChild(Imgg);
+                  createdTd.innerHTML = value.id;
+                  createdTr.appendChild(createdTd);
+                  createdTr.appendChild(createdTdImg);
+                  tablee.appendChild(createdTr);
+                  createdTr.appendChild(createdTdCat);
+                  createdTr.appendChild(createdTdDes);
+                  createdTr.appendChild(createdTdbtn);
+              });
+          }
+          
+          // Call allDisplay function to display all items initially
+          allDisplay();
+          
     
             let logout=()=>{
                 console.log("logout")

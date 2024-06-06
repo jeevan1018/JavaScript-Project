@@ -5,6 +5,7 @@ tr,
 td {
 border: 10px solid wheat; 
 border-collapse: collapse; 
+padding: 5px;
 
 text-align: center;
 font-size:medium;
