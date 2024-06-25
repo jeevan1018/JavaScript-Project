@@ -1,7 +1,7 @@
- /*   var storedData = JSON.parse(localStorage.getItem("storeData"));
+  /*   var storedData = JSON.parse(localStorage.getItem("storeData"));
         console.log(storedData) */
 
-        /*
+     /*   
         let form = document.getElementById("setpassword");
 
         form.addEventListener("submit", function(event) {
@@ -25,13 +25,20 @@ localStorage.setItem("storeData",JSON.stringify(storedData));
                 alert("Password changed successfully!");
                 window.location.href = "home.html";
             }
-        }); */
-        document.getElementById("setPasswordForm").addEventListener("submit", function(event) {
+        }); 
+        
+        
+         */
+
+        document.getElementById("setPassword").addEventListener("submit", function(event) {
             event.preventDefault();
         
-            var newPassword = document.getElementById("newPassword").value;
-            var confirmNewPassword = document.getElementById("confirmNewPassword").value;
         
+            var username = document.getElementById("username").value;
+            var newPassword = document.getElementById("password").value;
+            var confirmNewPassword = document.getElementById("confirmPassword").value;
+        
+            
             if (newPassword === "" || confirmNewPassword === "") {
                 alert("Passwords should not be empty.");
                 return;
@@ -42,21 +49,34 @@ localStorage.setItem("storeData",JSON.stringify(storedData));
                 return;
             }
         
-            // Retrieve stored user data from local storage
-            var storedData = JSON.parse(localStorage.getItem("storeData"));
+            
+            var storedData = JSON.parse(localStorage.getItem("storeData")) || [];
+            console.log(storedData);
+    
+            var userToUpdate = storedData.map(function(user) {
+                if(user.username === username){
+                    user.password= confirmNewPassword
+                    alert("password chnaged")
+                }
+                else{
+                    alert("user not found")
+                }
+            });
+            console.log(userToUpdate);
         
-            if (!storedData) {
-                alert("User data not found.");
-                return;
-            }
+            // if (!userToUpdate) {
+            //     alert("User not found.");
+            //     return;
+            // }
         
-            // Update the password in the stored data
-            storedData.password = newPassword;
+            
+            // userToUpdate.password = newPassword;
         
-            // Save the updated data back to local storage
+        
             localStorage.setItem("storeData", JSON.stringify(storedData));
         
+            
             alert("Password changed successfully!");
-            window.location.href = "home.html"; // Redirect to home page
+            window.location.href = "home.html";
         });
         

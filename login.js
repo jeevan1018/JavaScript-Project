@@ -22,26 +22,25 @@ if (storedData.email === enteredUsername  && storedData.password === enteredPass
 
 
 document.getElementById("loginForm").addEventListener("submit", function(event) {
-   event.preventDefault();
+    event.preventDefault();
 
-   var enteredUsername = document.getElementById("loginUsername").value;
-   var enteredPassword = document.getElementById("loginPassword").value;
+    var enteredUsername = document.getElementById("loginUsername").value;
+    var enteredPassword = document.getElementById("loginPassword").value;
 
-   // Retrieve stored user data from local storage
-   var storedData = JSON.parse(localStorage.getItem("storeData"));
+    var storedData = JSON.parse(localStorage.getItem("storeData"));
 
-   if (!storedData) {
-       console.error("No stored data found.");
-       return;
-   }
+    if (!storedData) {
+        console.error("No stored data found.");
+        return;
+    }
 
-   // Check if entered credentials match stored data
-   if (storedData.email === enteredUsername && storedData.password === enteredPassword) {
-       // Successful login
-       alert("Login Successful");
-       window.location.href = "home.html"; // Redirect to home page
-   } else {
-       // Invalid credentials
-       alert("Invalid credentials. Please try again.");
-   }
+    var isAuthenticated = storedData.map(user => user.email === enteredUsername && user.password === enteredPassword)
+                                    .some(isMatch => isMatch);
+
+    if (isAuthenticated) {
+        alert("Login Successful");
+        window.location.href = "home.html"; 
+    } else {
+        alert("Invalid credentials. Please try again.");
+    }
 });

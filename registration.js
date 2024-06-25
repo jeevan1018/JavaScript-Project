@@ -52,7 +52,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     if (phone.length !== 10) {
         document.getElementById("phoneError").style.display = "block";
     } else if (username.length < 6) {
-        document.getElementById("userError").style.display = "block"; // Corrected to target the error message element
+        document.getElementById("userError").style.display = "block"; 
     } else if (password.length < 8) {
         document.getElementById("passError").style.display = "block";
     } else if (password !== confirmPassword) {
