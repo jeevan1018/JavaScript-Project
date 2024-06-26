@@ -54,7 +54,7 @@ localStorage.setItem("storeData",JSON.stringify(storedData));
             console.log(storedData);
     
             var userToUpdate = storedData.map(function(user) {
-                if(user.username === username){
+                if(user.username === username || user.phone === username){
                     user.password= confirmNewPassword
                     alert("password chnaged")
                 }
